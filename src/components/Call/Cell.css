@@ -1,0 +1,19 @@
+.cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.cell.queen {
+    background-color: lightblue;
+}
+
+.cell.under-attack {
+    background-color: pink;
+}

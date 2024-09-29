@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
+.victory-screen {
+    font-size: 24px;
+    color: green;
+    text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.defeat-screen {
+    font-size: 24px;
+    color: rgb(255, 0, 0);
+    text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.resetButton {
+    text-align: center;
+    color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.start-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    background-image: url(images/start-screen.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.App-link {
-  color: #61dafb;
+.start-screen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.start-screen h1,
+.start-screen button {
+    position: relative;
+    z-index: 2;
+}
+
+.start-screen h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.start-screen button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.start-screen button:hover {
+    background-color: #45a049;
+}
+
+.game-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(images/game-screen.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.game-screen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.game-content {
+    position: relative;
+    z-index: 2;
+}
+
+.victory-screen {
+    font-size: 48px;
+    color: gold; /* Золотистый цвет */
+    text-align: center;
+    animation: glow 1.5s infinite alternate; /* Анимация свечения */
+    position: relative;
+    z-index: 2; /* Чтобы текст был над фоном */
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 30px lightyellow;
+    }
+    100% {
+        text-shadow: 0 0 20px orange, 0 0 30px orange, 0 0 40px yellow;
+    }
+}
+
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: url(./images/confetti.png); /* Путь к изображению конфетти */
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1; /* Фон за текстом */
 }
