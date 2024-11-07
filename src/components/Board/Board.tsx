@@ -69,7 +69,7 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime }) => {
         <div>
             {gameWon ? (
                 <div className="victory-screen">
-                    <div className="confetti"></div> {/* Элемент для фона конфетти */}
+                    <div className="confetti"></div>
                     <h1>Победа!</h1>
                     <p>Время: {time} секунд</p>
                     <p>Ходов: {moves}</p>
