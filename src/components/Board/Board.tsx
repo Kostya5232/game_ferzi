@@ -3,6 +3,7 @@ import "./Board.css";
 import Cell from "../Call/Cell";
 import { isUnderAttack, Position } from "../../utils";
 import { saveToLeaderboard } from "../../leaderbord";
+import SoundPlayer from "../SoundPlayer";
 
 interface BoardProps {
     time: number;
@@ -20,6 +21,7 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime, gameEnd
     const [gameOver, setGameOver] = useState(false);
     const [gameWon, setGameWon] = useState(false);
     const [playerName, setPlayerName] = useState("");
+    const [soundAction, setSoundAction] = useState<"queen" | "victory" | "defeat" | "background" | null>(null);
 
     const resetGame = () => {
         const randomQueen = { row: Math.floor(Math.random() * 8), col: Math.floor(Math.random() * 8) };
@@ -31,6 +33,7 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime, gameEnd
         resetTime();
         onReset();
         setPlayerName("");
+        setSoundAction("background");
     };
 
     useEffect(() => {
@@ -55,10 +58,12 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime, gameEnd
             if (queens.length === 7) {
                 setGameWon(true);
                 gameEnded(true);
+                setSoundAction("victory");
             }
         } else {
             setGameOver(true);
             gameEnded(false);
+            setSoundAction("defeat");
         }
     };
 
@@ -69,8 +74,15 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime, gameEnd
             for (let col = 0; col < 8; col++) {
                 const isQueen = queens.some((q) => q.row === row && q.col === col);
                 const underAttack = isUnderAttack(queens, row, col);
+                const isWhiteCell = (row + col) % 2 === 0;
                 rowCells.push(
-                    <Cell key={`${row}-${col}`} isQueen={isQueen} isUnderAttack={underAttack && !isQueen} onClick={() => handleCellClick(row, col)} />
+                    <Cell
+                        key={`${row}-${col}`}
+                        isQueen={isQueen}
+                        isUnderAttack={underAttack && !isQueen}
+                        onClick={() => handleCellClick(row, col)}
+                        cellColor={isWhiteCell ? "white" : "black"}
+                    />
                 );
             }
             board.push(
@@ -84,6 +96,7 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime, gameEnd
 
     return (
         <div>
+            <SoundPlayer action={soundAction} />
             {gameWon ? (
                 <div className="victory-screen">
                     <div className="confetti"></div>
@@ -91,7 +104,13 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime, gameEnd
                     <p>Время: {time} секунд</p>
                     <p>Ходов: {moves}</p>
                     <div className="input-container">
-                        <input type="text" placeholder="Введите ваше имя" value={playerName} onChange={(e) => setPlayerName(e.target.value)} />
+                        <input
+                            type="text"
+                            placeholder="Введите ваше имя"
+                            value={playerName}
+                            onChange={(e) => setPlayerName(e.target.value)}
+                            required
+                        />
                     </div>
                     <div className="buttons">
                         <button className="resetButton" onClick={resetGame}>
@@ -106,6 +125,7 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime, gameEnd
                                 saveToLeaderboard(time, moves, playerName);
                                 openLeaderboard();
                             }}
+                            disabled={!playerName.trim()}
                         >
                             Сохранить результат
                         </button>

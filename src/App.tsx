@@ -58,6 +58,9 @@ const App: React.FC = () => {
 
     return (
         <div className="App">
+            <video className="video-bg" autoPlay loop muted>
+                <source src={require("./assets/video/backStart.mp4")} type="video/mp4" />
+            </video>
             {showLeaderboard ? (
                 <Leaderboard onClose={closeLeaderboard} />
             ) : gameStarted ? (
