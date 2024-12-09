@@ -34,7 +34,11 @@ const SoundPlayer: React.FC<SoundPlayerProps> = ({ action }) => {
         }
 
         if (audio) {
-            audio.play();
+            audio.play().catch((error) => {
+                if (error.name !== "AbortError") {
+                    console.error("Ошибка воспроизведения аудио:", error);
+                }
+            });
         }
 
         return () => {
