@@ -1,5 +1,5 @@
 import React from "react";
-import { getLeaderboard, LeaderboardEntry, clearLeaderboard } from "../../leaderbord";
+import { getLeaderboard, LeaderboardEntry /*clearLeaderboard*/ } from "../../leaderbord";
 import "./Leaderboard.css";
 
 interface LeaderboardProps {
@@ -9,10 +9,10 @@ interface LeaderboardProps {
 const Leaderboard: React.FC<LeaderboardProps> = ({ onClose }) => {
     const leaderboard: LeaderboardEntry[] = getLeaderboard();
 
-    const handleClear = () => {
-        clearLeaderboard();
-        window.location.reload();
-    };
+    // const handleClear = () => {
+    //     clearLeaderboard();
+    //     window.location.reload();
+    // };
 
     return (
         <div className="leaderboard">
