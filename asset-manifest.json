@@ -1,7 +1,12 @@
 {
   "files": {
+<<<<<<< Updated upstream
     "main.css": "./static/css/main.fb8cf8a5.css",
     "main.js": "./static/js/main.556af151.js",
+=======
+    "main.css": "./static/css/main.4d3ecdcd.css",
+    "main.js": "./static/js/main.9ff7e8cc.js",
+>>>>>>> Stashed changes
     "static/js/453.c72cef7b.chunk.js": "./static/js/453.c72cef7b.chunk.js",
     "static/media/backStart.mp4": "./static/media/backStart.63ca6b68455fb6c2d8dc.mp4",
     "static/media/FonMusic.mp3": "./static/media/FonMusic.91c165ee8ec641e5c32c.mp3",
@@ -13,6 +18,7 @@
     "static/media/blood.png": "./static/media/blood.4e644532baa27f529238.png",
     "static/media/The_sound_of_running.mp3": "./static/media/The_sound_of_running.9345e05d4700a762818b.mp3",
     "index.html": "./index.html",
+<<<<<<< Updated upstream
     "main.fb8cf8a5.css.map": "./static/css/main.fb8cf8a5.css.map",
     "main.556af151.js.map": "./static/js/main.556af151.js.map",
     "453.c72cef7b.chunk.js.map": "./static/js/453.c72cef7b.chunk.js.map"
@@ -20,5 +26,14 @@
   "entrypoints": [
     "static/css/main.fb8cf8a5.css",
     "static/js/main.556af151.js"
+=======
+    "main.4d3ecdcd.css.map": "./static/css/main.4d3ecdcd.css.map",
+    "main.9ff7e8cc.js.map": "./static/js/main.9ff7e8cc.js.map",
+    "453.c72cef7b.chunk.js.map": "./static/js/453.c72cef7b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4d3ecdcd.css",
+    "static/js/main.9ff7e8cc.js"
+>>>>>>> Stashed changes
   ]
 }
