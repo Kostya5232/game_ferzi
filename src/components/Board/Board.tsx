@@ -95,7 +95,7 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime, gameEnd
     };
 
     return (
-        <div>
+        <div className="area">
             <SoundPlayer action={soundAction} />
             {gameWon ? (
                 <div className="victory-screen">

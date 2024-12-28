@@ -10,7 +10,7 @@ body {
     border-radius: 10px;
     padding: 20px;
     max-width: 600px;
-    margin: 20px auto;
+    margin: 0px auto;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     font-family: "Arial", sans-serif;
     overflow-x: auto;
@@ -136,11 +136,6 @@ body {
 }
 
 @media (max-width: 480px) {
-    .leaderboard table {
-        display: block;
-        overflow-x: auto;
-    }
-
     .leaderboard th,
     .leaderboard td {
         font-size: 0.8rem;
@@ -149,6 +144,25 @@ body {
 
     .leaderboard h2 {
         font-size: 1rem;
+    }
+
+    .leaderboard button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 450px) or (max-height: 560px) {
+    .leaderboard th,
+    .leaderboard td {
+        font-size: 0.6rem;
+        padding: 4px;
+    }
+
+    .leaderboard h2 {
+        font-size: 1rem;
+        margin-top: -10px;
+        margin-bottom: -10px;
     }
 
     .leaderboard button {
