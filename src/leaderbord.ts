@@ -1,29 +1,29 @@
 export type LeaderboardEntry = {
-    name: string;
-    time: number;
-    moves: number;
-    date: string;
+    nameK: string;
+    timeK: number;
+    movesK: number;
+    dateK: string;
 };
 
 export const getLeaderboard = (): LeaderboardEntry[] => {
-    const data = localStorage.getItem("leaderboard");
+    const data = localStorage.getItem("leaderboardK");
     return data ? JSON.parse(data) : [];
 };
 
-export const saveToLeaderboard = (time: number, moves: number, name: string) => {
+export const saveToLeaderboard = (timeK: number, movesK: number, nameK: string) => {
     const newEntry: LeaderboardEntry = {
-        name,
-        time,
-        moves,
-        date: new Date().toISOString(),
+        nameK,
+        timeK,
+        movesK,
+        dateK: new Date().toISOString(),
     };
 
     const leaderboard = getLeaderboard();
     leaderboard.push(newEntry);
-    leaderboard.sort((a, b) => a.time - b.time || a.moves - b.moves);
-    localStorage.setItem("leaderboard", JSON.stringify(leaderboard.slice(0, 10)));
+    leaderboard.sort((a, b) => a.timeK - b.timeK || a.movesK - b.movesK);
+    localStorage.setItem("leaderboardK", JSON.stringify(leaderboard.slice(0, 10)));
 };
 
 export const clearLeaderboard = () => {
-    localStorage.removeItem("leaderboard");
+    localStorage.removeItem("leaderboardK");
 };

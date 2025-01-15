@@ -146,9 +146,23 @@
     border: 5px solid red;
 }
 
-@media (max-height: 570px) {
+@media (max-height: 645px) {
     .game-content {
-        scale: 0.565;
+        scale: 0.95;
+        position: absolute;
+    }
+}
+
+@media (max-height: 595px) {
+    .game-content {
+        scale: 0.7;
+        position: absolute;
+    }
+}
+
+@media (max-height: 490px) {
+    .game-content {
+        scale: 0.5;
         position: absolute;
     }
 }

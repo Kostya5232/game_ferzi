@@ -1,5 +1,5 @@
 import React from "react";
-import { getLeaderboard, LeaderboardEntry /*clearLeaderboard*/ } from "../../leaderbord";
+import { getLeaderboard, LeaderboardEntry, clearLeaderboard } from "../../leaderbord";
 import "./Leaderboard.css";
 
 interface LeaderboardProps {
@@ -28,13 +28,13 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ onClose }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {leaderboard.map((entry, index) => (
-                        <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td>{entry.name}</td>
-                            <td>{entry.time}</td>
-                            <td>{entry.moves}</td>
-                            <td>{new Date(entry.date).toLocaleDateString()}</td>
+                    {leaderboard.map((entry, indexK) => (
+                        <tr key={indexK}>
+                            <td>{indexK + 1}</td>
+                            <td>{entry.nameK}</td>
+                            <td>{entry.timeK}</td>
+                            <td>{entry.movesK}</td>
+                            <td>{new Date(entry.dateK).toLocaleDateString()}</td>
                         </tr>
                     ))}
                 </tbody>
