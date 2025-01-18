@@ -9,9 +9,10 @@ interface CellProps {
     isUnderAttack: boolean;
     onClick: () => void;
     cellColor: "white" | "black";
+    isFirst?: boolean;
 }
 
-const Cell: React.FC<CellProps> = ({ isQueen, isUnderAttack, onClick, cellColor }) => {
+const Cell: React.FC<CellProps> = ({ isQueen, isUnderAttack, onClick, cellColor, isFirst }) => {
     useEffect(() => {
         if (isQueen) {
             const audio = new Audio(queenSound);
@@ -23,7 +24,9 @@ const Cell: React.FC<CellProps> = ({ isQueen, isUnderAttack, onClick, cellColor 
 
     return (
         <div className={cellClass} onClick={onClick}>
-            {isQueen && <video className="queen-video" src={require("../../assets/video/Queen.mp4")} autoPlay muted />}
+            {isQueen && (
+                <video className="queen-video" src={require(`../../assets/video/${isFirst ? "FirstQueen.mp4" : "Queen.mp4"}`)} autoPlay muted />
+            )}
         </div>
     );
 };

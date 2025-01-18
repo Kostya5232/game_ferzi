@@ -24,7 +24,7 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime, gameEnd
     const [soundAction, setSoundAction] = useState<"queen" | "victory" | "defeat" | "background" | null>(null);
 
     const resetGame = () => {
-        const randomQueen = { row: Math.floor(Math.random() * 8), col: Math.floor(Math.random() * 8) };
+        const randomQueen = { row: Math.floor(Math.random() * 8), col: Math.floor(Math.random() * 8), isFirst: true };
         setQueens([randomQueen]);
         setMoves(0);
         setGameOver(false);
@@ -49,10 +49,11 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime, gameEnd
 
         const existingQueen = queens.find((q) => q.row === row && q.col === col);
 
-        if (existingQueen) {
+        if (existingQueen && !existingQueen.isFirst) {
             setQueens(queens.filter((q) => q.row !== row || q.col !== col));
-        } else if (!isUnderAttack(queens, row, col)) {
-            setQueens([...queens, { row, col }]);
+        } else if (!existingQueen && !isUnderAttack(queens, row, col)) {
+            const newQueen = { row, col, isFirst: queens.length === 0 };
+            setQueens([...queens, newQueen]);
             setMoves(moves + 1);
 
             if (queens.length === 7) {
@@ -60,6 +61,8 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime, gameEnd
                 gameEnded(true);
                 setSoundAction("victory");
             }
+        } else if (existingQueen?.isFirst) {
+            return;
         } else {
             setGameOver(true);
             gameEnded(false);
@@ -72,9 +75,11 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime, gameEnd
         for (let row = 0; row < 8; row++) {
             const rowCells = [];
             for (let col = 0; col < 8; col++) {
-                const isQueen = queens.some((q) => q.row === row && q.col === col);
+                const queen = queens.find((q) => q.row === row && q.col === col);
+                const isQueen = !!queen;
                 const underAttack = isUnderAttack(queens, row, col);
                 const isWhiteCell = (row + col) % 2 === 0;
+
                 rowCells.push(
                     <Cell
                         key={`${row}-${col}`}
@@ -82,6 +87,7 @@ const Board: React.FC<BoardProps> = ({ time, moves, setMoves, resetTime, gameEnd
                         isUnderAttack={underAttack && !isQueen}
                         onClick={() => handleCellClick(row, col)}
                         cellColor={isWhiteCell ? "white" : "black"}
+                        isFirst={queen?.isFirst}
                     />
                 );
             }
