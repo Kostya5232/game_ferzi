@@ -1,15 +1,11 @@
 {
   "files": {
-<<<<<<< Updated upstream
-    "main.css": "./static/css/main.fb8cf8a5.css",
-    "main.js": "./static/js/main.556af151.js",
-=======
-    "main.css": "./static/css/main.4d3ecdcd.css",
-    "main.js": "./static/js/main.9ff7e8cc.js",
->>>>>>> Stashed changes
+    "main.css": "./static/css/main.427201dd.css",
+    "main.js": "./static/js/main.96eef78a.js",
     "static/js/453.c72cef7b.chunk.js": "./static/js/453.c72cef7b.chunk.js",
     "static/media/backStart.mp4": "./static/media/backStart.63ca6b68455fb6c2d8dc.mp4",
     "static/media/FonMusic.mp3": "./static/media/FonMusic.91c165ee8ec641e5c32c.mp3",
+    "static/media/FirstQueen.mp4": "./static/media/FirstQueen.b1095b44363c26a1c913.mp4",
     "static/media/game-screen.jpg": "./static/media/game-screen.db6b0becd707d3592263.jpg",
     "static/media/И вы выиграли.mp3": "./static/media/И вы выиграли.8565201deda49ffa6fc8.mp3",
     "static/media/confetti.png": "./static/media/confetti.6a09be6e6f91e4d3e2b1.png",
@@ -18,22 +14,12 @@
     "static/media/blood.png": "./static/media/blood.4e644532baa27f529238.png",
     "static/media/The_sound_of_running.mp3": "./static/media/The_sound_of_running.9345e05d4700a762818b.mp3",
     "index.html": "./index.html",
-<<<<<<< Updated upstream
-    "main.fb8cf8a5.css.map": "./static/css/main.fb8cf8a5.css.map",
-    "main.556af151.js.map": "./static/js/main.556af151.js.map",
+    "main.427201dd.css.map": "./static/css/main.427201dd.css.map",
+    "main.96eef78a.js.map": "./static/js/main.96eef78a.js.map",
     "453.c72cef7b.chunk.js.map": "./static/js/453.c72cef7b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fb8cf8a5.css",
-    "static/js/main.556af151.js"
-=======
-    "main.4d3ecdcd.css.map": "./static/css/main.4d3ecdcd.css.map",
-    "main.9ff7e8cc.js.map": "./static/js/main.9ff7e8cc.js.map",
-    "453.c72cef7b.chunk.js.map": "./static/js/453.c72cef7b.chunk.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.4d3ecdcd.css",
-    "static/js/main.9ff7e8cc.js"
->>>>>>> Stashed changes
+    "static/css/main.427201dd.css",
+    "static/js/main.96eef78a.js"
   ]
 }
